@@ -1,0 +1,21 @@
+input {
+    border-radius: 25px;
+    border: 2px solid #072010;
+    background-color: #044220;
+    margin-top: 10px;
+    padding: 5px;
+    height: 10px;
+    width: 100px;
+    transition: width 1s;
+    text-decoration-line:underline;
+}
+
+input:hover {
+    width: 500px;
+    background: white;
+}
+
+input:focus{
+    width: 500px;
+    background: white;
+}

@@ -1,0 +1,22 @@
+.Navbar {
+    
+}
+
+img {
+    width: 75px;
+    border-radius: 50%;
+}
+
+
+NavLink {
+    list-style-type: none;
+    margin-left: 20px;
+    padding: 5px;
+    transition: all 0.3s ease-in;
+}
+
+NavLink {
+    background-color: #5F93FC;
+    color: #072007;
+    border-radius: 20px;
+}
