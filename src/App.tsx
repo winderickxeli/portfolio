@@ -1,84 +1,71 @@
 import React from 'react';
 import { Outlet, createBrowserRouter, RouterProvider, Route, NavLink } from 'react-router-dom';
-import './App.css';
-import './Navbar.module.css';
-import './Search.module.css';
+import Navbar from './Webcomponents/Navbar';
+import Search from './Webcomponents/Search';
+import Footer from './Webcomponents/Footer';
+import styles from './styles.module.css';
 
-const Navbar = () => {
-  return(
-    <nav className='Navbar'>
-        <NavLink className="NavLink" to="/">
-          <img src={require("./images/ProfilePic.jpg")} alt="Profile picture" />
-        </NavLink>
-        <NavLink className="NavLink" to="/">About me</NavLink>
-        <NavLink className="NavLink" to="Assignments">Assignments</NavLink>
-        <NavLink className="NavLink" to="ExtraCredit">Extra credits</NavLink>
-        <NavLink className="NavLink" to="Contact">Contact me</NavLink>
-    </nav>
-  );
-}
+import LoremIpsum, { loremIpsum } from 'react-lorem-ipsum';
+
+
 
 const Root = () => {
   return (
-    <body className='App'>
-      <div className='Nav'><Navbar /></div>
-      <div className='Search'><Search /></div>
-      <div className='Content'><Outlet /></div>
-      <div className='Footer'><Footer /></div>
-    </body>
+    <div className={styles.Container}>
+      <Navbar />
+      <Search />
+      <Outlet />
+      <Footer />
+    </div>
   )
 }
 
 const Home = () => {
   return (
-    <main>
+    <main className={styles.Content}>
       <h1>Hello everyone!</h1>
-      <p>Welcome to my portfolio. I hope you find what you're looking for in these pages. If you're interested, leave a message and I'll get back to you.</p>
+      <LoremIpsum p={2} />
     </main>
   )
 }
 
 const Assignments = () => {
   return (
-    <>Assignments</>
+    <main className={styles.Content}>
+    <h1>Assignments</h1>
+    <LoremIpsum p={1} />
+    <div className={styles.AssignmentContainer}>
+      <div className={styles.Assignment}>Assignment 1</div>
+    </div>
+    </main>
   )
 }
 
 const ExtraCredit = () => {
   return (
-    <>ExtraCredit</>
+    <main className={styles.Content}>
+      <h1>Extra Credit</h1>
+      <LoremIpsum p={2} />
+    </main>
   )
 }
 
 const Contact = () => {
   return (
-    <>Contact</>
-  )
-}
-
-const Search = () =>{
-  return(
-    <div className='Search'>
-      <input type="text" value="Search here"/>
-    </div>
-  )
-}
-
-const Footer = () => {
-  return(
-    <div>
-      <p>&copy; 2022 Eli Winderickx</p>
-    </div>
+    <main className={styles.Content}>
+      <h1>Contact</h1>
+      <LoremIpsum p={2} />
+    </main>
   )
 }
 
 const AboutMe = () => {
   return (
-    <article>
+    <main className={styles.Content}>
       <h1>About me...</h1>
       <p>I've been working as a system administrator for several years. During which I've seen changes in the industry. The sudden awareness that I need to adopt to a more DevOps centred mindset is just one of the reasons that made me decide to follow an IT development course at AP Highschool College.</p>
       <p></p>
-    </article>
+    </main>
   )
 }
 
@@ -91,6 +78,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />
+      },
+      {
+        path:"Me",
+        element: <AboutMe />
       },
       {
         path: "Assignments",
