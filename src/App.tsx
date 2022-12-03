@@ -1,13 +1,24 @@
-import React from 'react';
-import { Outlet, createBrowserRouter, RouterProvider, Route, NavLink } from 'react-router-dom';
+import React, { Children, useEffect, useState } from 'react';
+import { Outlet, createBrowserRouter, RouterProvider, Route, NavLink, useNavigate} from 'react-router-dom';
+
+// Web componenten
 import Navbar from './Webcomponents/Navbar';
 import Search from './Webcomponents/Search';
 import Footer from './Webcomponents/Footer';
+
+// Assignments
+import ColorSelect from './Assignments/color-select';
+import AssignmentHome from './Assignments/assignmentHome';
+
+// CSS
 import styles from './styles.module.css';
 
+// Temp imports
 import LoremIpsum, { loremIpsum } from 'react-lorem-ipsum';
 
-
+interface IAssignments {
+  ArrAssignments:string[]
+}
 
 const Root = () => {
   return (
@@ -29,14 +40,21 @@ const Home = () => {
   )
 }
 
-const Assignments = () => {
+const Assignments = ({ArrAssignments}:IAssignments) => {
+  const [selectedAssignment, setSelectedAssignment] = useState<string>("Home");
+  const navigate = useNavigate();
+  const changeAssignment = (e:React.ChangeEvent<HTMLSelectElement>) => {
+    navigate(e.target.value);
+  }
+
   return (
     <main className={styles.Content}>
-    <h1>Assignments</h1>
-    <LoremIpsum p={1} />
-    <div className={styles.AssignmentContainer}>
-      <div className={styles.Assignment}>Assignment 1</div>
-    </div>
+      <h1>Assignments</h1>
+      <select onChange={(e) => changeAssignment(e)}>
+        <option value="Home">Kies een opdracht</option>
+        {ArrAssignments.map((a,i) => <option key={i} value={a}><NavLink to={a}>{a}</NavLink></option>)}
+      </select>
+      <Outlet />
     </main>
   )
 }
@@ -70,6 +88,13 @@ const AboutMe = () => {
 }
 
 const App = () => {
+
+  const ArrAssignments:string[] = ["color-select"];
+
+  useEffect(() => {
+    document.title = "Eli Winderickx";
+  },[]);
+
 const router = createBrowserRouter([
   {
   path: "/",
@@ -85,7 +110,17 @@ const router = createBrowserRouter([
       },
       {
         path: "Assignments",
-        element: <Assignments />
+        element: <Assignments ArrAssignments={ArrAssignments}/>,
+        children: [
+          {
+            path:"Home",
+            element: <AssignmentHome />
+          },
+          {
+            path:"color-select",
+            element: <ColorSelect />
+          }
+        ]
       },
       {
         path: "ExtraCredit",
