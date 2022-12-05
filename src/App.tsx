@@ -1,24 +1,36 @@
 import React, { Children, useEffect, useState } from 'react';
-import { Outlet, createBrowserRouter, RouterProvider, Route, NavLink, useNavigate} from 'react-router-dom';
+import { Outlet, createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Web componenten
 import Navbar from './Webcomponents/Navbar';
 import Search from './Webcomponents/Search';
 import Footer from './Webcomponents/Footer';
 
+// Functional componenten
+import Assignments from './Functional/Assignments';
+import NotFound from './Functional/NotFound';
+import Home from './Functional/Home';
+import AboutMe from './Functional/AboutMe';
+import Contact from './Functional/Contact';
+import ExtraCredit from './Functional/ExtraCredit';
+
 // Assignments
-import ColorSelect from './Assignments/color-select';
 import AssignmentHome from './Assignments/assignmentHome';
+import ColorSelect from './Assignments/color-select';
+import ShoppingList from './Assignments/shoppinglist';
+import DadJoke from './Assignments/DadJoke/dadjoke';
+import ToDo from './Assignments/Todo/todo';
+import QuizApp from './Assignments/Quiz/QuizApp';
+import SlotMachine from './Assignments/Slotmachine/slotmachine';
+import CounterList from './Assignments/counterlist';
+import Counter from './Assignments/Counter';
+import { Pokedex,Pokemon } from './Assignments/PokeLibrary/Pokedex';
+
+//Extra Credit Assignments
+import ExtraCreditHome from './ExtraCredit/assignmentHome';
 
 // CSS
 import styles from './styles.module.css';
-
-// Temp imports
-import LoremIpsum, { loremIpsum } from 'react-lorem-ipsum';
-
-interface IAssignments {
-  ArrAssignments:string[]
-}
 
 const Root = () => {
   return (
@@ -31,107 +43,99 @@ const Root = () => {
   )
 }
 
-const Home = () => {
-  return (
-    <main className={styles.Content}>
-      <h1>Hello everyone!</h1>
-      <LoremIpsum p={2} />
-    </main>
-  )
-}
-
-const Assignments = ({ArrAssignments}:IAssignments) => {
-  const [selectedAssignment, setSelectedAssignment] = useState<string>("Home");
-  const navigate = useNavigate();
-  const changeAssignment = (e:React.ChangeEvent<HTMLSelectElement>) => {
-    navigate(e.target.value);
-  }
-
-  return (
-    <main className={styles.Content}>
-      <h1>Assignments</h1>
-      <select onChange={(e) => changeAssignment(e)}>
-        <option value="Home">Kies een opdracht</option>
-        {ArrAssignments.map((a,i) => <option key={i} value={a}><NavLink to={a}>{a}</NavLink></option>)}
-      </select>
-      <Outlet />
-    </main>
-  )
-}
-
-const ExtraCredit = () => {
-  return (
-    <main className={styles.Content}>
-      <h1>Extra Credit</h1>
-      <LoremIpsum p={2} />
-    </main>
-  )
-}
-
-const Contact = () => {
-  return (
-    <main className={styles.Content}>
-      <h1>Contact</h1>
-      <LoremIpsum p={2} />
-    </main>
-  )
-}
-
-const AboutMe = () => {
-  return (
-    <main className={styles.Content}>
-      <h1>About me...</h1>
-      <p>I've been working as a system administrator for several years. During which I've seen changes in the industry. The sudden awareness that I need to adopt to a more DevOps centred mindset is just one of the reasons that made me decide to follow an IT development course at AP Highschool College.</p>
-      <p></p>
-    </main>
-  )
-}
-
 const App = () => {
 
-  const ArrAssignments:string[] = ["color-select"];
+  const ArrAssignments:string[] = ["Color Select","Shoppinglist","Dad Joke","ToDo","QuizApp","SlotMachine","Counter List", "Counter", "Pokedex"];
+  const ArrExtraAssignments: string[] = [];
+  const CombinedAssignments: string[] = [...ArrAssignments,...ArrExtraAssignments];
 
   useEffect(() => {
     document.title = "Eli Winderickx";
   },[]);
 
-const router = createBrowserRouter([
-  {
-  path: "/",
-  element: <Root/>,
-  children: [
-      {
-        path: "/",
-        element: <Home />
-      },
-      {
-        path:"Me",
-        element: <AboutMe />
-      },
-      {
-        path: "Assignments",
-        element: <Assignments ArrAssignments={ArrAssignments}/>,
-        children: [
-          {
-            path:"Home",
-            element: <AssignmentHome />
-          },
-          {
-            path:"color-select",
-            element: <ColorSelect />
-          }
-        ]
-      },
-      {
-        path: "ExtraCredit",
-        element: <ExtraCredit />
-      },
-      {
-        path: "Contact",
-        element: <Contact />
-      }
-  ]
-}])
+  const router = createBrowserRouter([
+    {
+    path: "/",
+    element: <Root/>,
+    children: [
+        {
+          path: "/",
+          element: <Home />
+        },
+        {
+          path:"Me",
+          element: <AboutMe />
+        },
+        {
+          path: "Assignments",
+          element: <Assignments ArrAssignments={ArrAssignments}/>,
+          children: [
+            {
+              path:"Home",
+              element: <AssignmentHome />
+            },
+            {
+              path:"Color Select",
+              element: <ColorSelect />
+            },
+            {
+              path:"Shoppinglist",
+              element: <ShoppingList />
+            },
+            {
+              path:"Dad Joke",
+              element: <DadJoke />
+            },
+            {
+              path:"ToDo",
+              element: <ToDo />
+            },
+            {
+              path:"QuizApp",
+              element: <QuizApp />
+            },
+            {
+              path:"SlotMachine",
+              element: <SlotMachine />
+            },
+            {
+              path:"Counter List",
+              element: <CounterList />
+            },
+            {
+              path:"Counter",
+              element: <Counter />
+            },
+            {
+              path:"Pokedex",
+              element: <Pokedex />,
+            },
+            {
+              path:"Pokemon/:id",
+              element: <Pokemon/>
+            }
+          ]
+        },
+        {
+          path: "ExtraCredit",
+          element: <ExtraCredit  ArrAssignments={ArrExtraAssignments}/>,
+          children: [
+            {
+              path:"Home",
+              element: <ExtraCreditHome />
+            }
+          ]
+        },
+        {
+          path: "Contact",
+          element: <Contact />
+        },
+        {
+          path: "*",
+          element: <NotFound />
+        }
+    ]
+  }])
 
   return (
     <div>

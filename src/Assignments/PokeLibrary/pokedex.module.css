@@ -1,0 +1,11 @@
+.Pokedex {
+    width: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 10px;
+    padding-top: 10px;
+}
+
+.Pokedex NavLink {
+    color: white;
+}

@@ -1,3 +1,7 @@
+body {
+  background-color: #072007;
+}
+
 .Container {
   height: 100vh;
   background-color: #072007;
@@ -94,7 +98,10 @@
   border-radius: 20px;
 }
 .Nav .SelectNavLink {
-
+  list-style: none;
+  background-color: #5f93fc60;
+  color: #072007;
+  border-radius: 20px;
 }
 
 .Footer {
