@@ -32,7 +32,7 @@ const Contact = () => {
     checkButton();
   }
 
-  const buttonClicked: React.MouseEventHandler<HTMLInputElement> = async () => {
+  const buttonClicked: React.MouseEventHandler<HTMLButtonElement> = async () => {
     var templateParams = {
       from_name: from_name,
       reply_to: reply_to,
@@ -42,22 +42,21 @@ const Contact = () => {
     setName(name => "");
     setReply_to(replyTo => "");
     setMessage(message => "");
-
-
-
   }
 
     return (
       <main className={styles.Content}>
         <h2>Contact</h2>
-          <label>Name</label>
-          <input type="text" name="from_name" id="from_name" onChange={from_nameChange}/>
-          <label>Email</label>
-          <input type="email" name="reply_to" id="reply_to" onChange={reply_ToChange}/>
-          <label>Message</label>
-          <textarea name="message" id="message" onChange={messageChange}/>
-          <input type="submit" disabled={buttonState} onClick={buttonClicked} value="Send" />
+        <form className='ContactPage'>
+            <label>Name</label>
+            <input type="text" name="from_name" id="from_name" onChange={from_nameChange}/>
+            <label>Email</label>
+            <input type="email" name="reply_to" id="reply_to" onChange={reply_ToChange}/>
+            <label>Message</label>
+            <textarea name="message" id="message" onChange={messageChange} rows={5}/>
+          <button disabled={buttonState} onClick={buttonClicked} value="Send">Send mail</button>
           {showMessage ? <p>{confirmationText}</p> : ""}
+        </form>
       </main>
     )
   }

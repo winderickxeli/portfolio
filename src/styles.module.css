@@ -33,6 +33,12 @@ body {
   background: none;
 }
 
+.ContactPage label, input[type=text], input[type=email], textarea {
+  width: 98%; 
+  margin-top: 2px;
+  padding: 12px;
+}
+
 .Header {
   grid-area: Header;
 }
@@ -44,6 +50,7 @@ body {
   border-radius: 25px;
   border: 2px solid #072010;
   background-color: #044220;
+  color: white;
   margin-top: 10px;
   padding: 5px;
   height: 15px;
@@ -56,19 +63,26 @@ body {
 .Header input:hover {
   width: 500px;
   background: white;
+  color: black;
 }
 
 .Header input:focus{
   width: 500px;
   background: white;
+  color:black;
 }
 
 .Pic img {
   width: 75px;
   border-radius: 50%;
-  border: solid 1px #5f93FC;
+  border: dashed 1px #5f93FC;
   margin: 30px 0px 0px 20px;
-  padding: 10px;
+  padding: 5px;
+  transition: all 0.4s;
+}
+
+.Pic img:hover {
+  background-color: #5F93FC;
 }
 
 .Nav {
@@ -87,7 +101,7 @@ body {
 .Nav li {
   display: inline-block;
   list-style: none;
-  padding: 10px 20px 10px 0px;
+  padding: 10px 10px 10px 10px;
   color: #5F93FC;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -104,7 +118,7 @@ body {
   left: 51%;
   right: 51%;
   bottom: 0;
-  background: #2098D1;
+  background: #5F93FC;
   height: 4px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
@@ -126,15 +140,37 @@ body {
 }
 
 .Footer {
-  border-top: 1px dashed #5F93FC;
+  display: inline-block;
   align-items: center;
   justify-items: center;
   text-align: center;
   grid-area: Footer;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
 }
 
-.Footer:hover{
-  background-color: #5F93FC;
-  color: #044220;
-  text-decoration: none;
+.Footer:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  top: -1;
+  background: #5F93FC;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.Footer:hover:before, .Footer:focus:before, .Footer:active:before {
+  left: 0;
+  right: 0;
 }
