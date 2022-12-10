@@ -79,19 +79,24 @@ body {
 .Nav img {
     width: 75px;
     border-radius: 50%;
+    margin-left: 10px;
+    padding: 10px;
 }
 
+.Nav ul {
+  margin: 0px;
+  padding: 0px;
+}
 
-.Nav .NavLink {
+.Nav li {
   margin-left: 10px;
   list-style: none;
-  text-decoration: none;
   padding: 10px;
   transition: all 0.3s ease-in;
   color: #5F93FC;
 }
 
-.Nav .NavLink:hover {
+.Nav li:hover {
   list-style: none;
   background-color: #5F93FC;
   color: #072007;

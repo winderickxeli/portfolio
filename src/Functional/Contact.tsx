@@ -32,20 +32,17 @@ const Contact = () => {
     checkButton();
   }
 
-  const buttonClicked: React.MouseEventHandler<HTMLInputElement> = () => {
+  const buttonClicked: React.MouseEventHandler<HTMLInputElement> = async () => {
     var templateParams = {
       from_name: from_name,
       reply_to: reply_to,
       message: message
     };
-      emailjs.send('service_qwulxkm','template_j253hn9', templateParams,"vGFUIhNZVdftPsY03")
-    .then(function(response) {
-      setName(name => "");
-      setReply_to(replyTo => "");
-      setMessage(message => "");
-    }, function(err) {
-      
-    });
+    await emailjs.send('service_qwulxkm','template_l4jqz77', templateParams,"vGFUIhNZVdftPsY03")
+    setName(name => "");
+    setReply_to(replyTo => "");
+    setMessage(message => "");
+
 
 
   }

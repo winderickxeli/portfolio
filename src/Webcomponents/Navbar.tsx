@@ -6,10 +6,12 @@ const Navbar = () => {
           <NavLink className={styles.NavLink} to="/">
             <img src={require("../images/ProfilePic.jpg")} alt="Profile picture" />
           </NavLink>
-          <NavLink className={styles.NavLink} to="Me">About me</NavLink>
-          <NavLink className={styles.NavLink} to="Assignments">Assignments</NavLink>
-          <NavLink className={styles.NavLink} to="ExtraCredit">Extra credits</NavLink>
-          <NavLink className={styles.NavLink} to="Contact">Contact me</NavLink>
+          <ul>
+            <NavLink className={styles.NavLink} to="Me"><li>About me</li></NavLink>
+            <NavLink className={styles.NavLink} to="Assignments"><li>Assignments</li></NavLink>
+            <NavLink className={styles.NavLink} to="ExtraCredit"><li>Extra credits</li></NavLink>
+            <NavLink className={styles.NavLink} to="Contact"><li>Contact me</li></NavLink>
+          </ul>
       </nav>
     );
   }
