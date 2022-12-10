@@ -1,5 +1,13 @@
 body {
-  background-image: radial-gradient(circle farthest-corner at 20px 10px , #072007,rgb(159, 255, 135));
+  /* background-image: radial-gradient(circle farthest-corner at 20px 10px , #072007,rgb(159, 255, 135)); */
+  background-color: #044220;
+  font-family: "Regular";
+  width: 100%;
+}
+
+@font-face {
+  font-family: "Regular";
+  src: local("Arvo-Regular"), url("./fonts/Arvo-Regular.ttf") format("truetype");
 }
 
 .Container {
@@ -21,6 +29,28 @@ body {
   overflow:auto;
 }
 
+.Content ul {
+  padding: 0px;
+}
+
+.Content li {
+  list-style:none;
+}
+
+.Content li a {
+  text-decoration: none;
+  color: #5F93FC;
+}
+
+.Content li::before{
+  content: "\27A4";
+}
+
+.Content li:hover {
+  transform: translateX(3px);
+  transition: 0.3s;
+}
+
 .Contentmenu select {
   height: 25px;
   width: 200px;
@@ -33,10 +63,16 @@ body {
   background: none;
 }
 
-.ContactPage label, input[type=text], input[type=email], textarea {
-  width: 98%; 
-  margin-top: 2px;
+label, input[type=text], input[type=email], textarea {
+  width: 97%; 
+  margin-top: 3px;
   padding: 12px;
+}
+
+input[type=button] {
+  width: 99%;
+  font-size: large;
+  overflow:hidden
 }
 
 .Header {
@@ -48,7 +84,7 @@ body {
   top: 10px;
   right: 10px;
   border-radius: 25px;
-  border: 2px solid #072010;
+  border: 1px dashed #5F93FC;
   background-color: #044220;
   color: white;
   margin-top: 10px;
@@ -57,11 +93,12 @@ body {
   width: 100px;
   max-width: fit-content;
   transition: width 1s;
-  text-decoration-line:underline;
+  text-decoration-line:none;
 }
 
 .Header input:hover {
   width: 500px;
+  border: 1px solid #5F93FC;
   background: white;
   color: black;
 }
@@ -75,7 +112,7 @@ body {
 .Pic img {
   width: 75px;
   border-radius: 50%;
-  border: dashed 1px #5f93FC;
+  border: dashed 1px #5F93FC;
   margin: 30px 0px 0px 20px;
   padding: 5px;
   transition: all 0.4s;
@@ -173,4 +210,9 @@ body {
 .Footer:hover:before, .Footer:focus:before, .Footer:active:before {
   left: 0;
   right: 0;
+}
+
+.Footer a {
+  text-decoration: none;
+  color: #5F93FC;
 }

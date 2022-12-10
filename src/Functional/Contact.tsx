@@ -32,7 +32,7 @@ const Contact = () => {
     checkButton();
   }
 
-  const buttonClicked: React.MouseEventHandler<HTMLButtonElement> = async () => {
+  const buttonClicked: React.MouseEventHandler<HTMLInputElement> = async () => {
     var templateParams = {
       from_name: from_name,
       reply_to: reply_to,
@@ -47,14 +47,22 @@ const Contact = () => {
     return (
       <main className={styles.Content}>
         <h2>Contact</h2>
-        <form className='ContactPage'>
-            <label>Name</label>
-            <input type="text" name="from_name" id="from_name" onChange={from_nameChange}/>
-            <label>Email</label>
-            <input type="email" name="reply_to" id="reply_to" onChange={reply_ToChange}/>
-            <label>Message</label>
-            <textarea name="message" id="message" onChange={messageChange} rows={5}/>
-          <button disabled={buttonState} onClick={buttonClicked} value="Send">Send mail</button>
+        <p>Contact me with the form below or find me on other channels:</p>
+        <ul>
+          <li><a href='https://winderickx.me'> Linktree</a></li>
+          <li><a href='https://github.com/winderickxeli'> Github</a></li>
+          <li><a href='https://www.linkedin.com/in/eli-winderickx-507944223'> LinkedIn</a></li>
+          <li><a href='https://twitter.com/WinderickxEli'> Twitter</a></li>
+
+        </ul>
+        <form className='ContactPage' title='Contact'>
+          <label>Name</label>
+          <input type="text" name="from_name" id="from_name" onChange={from_nameChange} placeholder="Your name"/>
+          <label>Email</label>
+          <input type="email" name="reply_to" id="reply_to" onChange={reply_ToChange} placeholder="Your email address"/>
+          <label>Message</label>
+          <textarea name="message" id="message" onChange={messageChange} rows={5} placeholder="Your message"/>
+          <input type="button" disabled={buttonState} onClick={buttonClicked} value="Send"/>
           {showMessage ? <p>{confirmationText}</p> : ""}
         </form>
       </main>
