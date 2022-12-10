@@ -5,8 +5,7 @@ import { IAssignments } from "../Interfaces";
 
 import styles from '../styles.module.css';
 
-const Assignments = ({ArrAssignments}:IAssignments) => {
-    const [selectedAssignment, setSelectedAssignment] = useState<string>("Home");
+const Portfolio = ({ArrAssignments}:IAssignments) => {
     const navigate = useNavigate();
     const changeAssignment = (e:React.ChangeEvent<HTMLSelectElement>) => {
       navigate(e.target.value);
@@ -14,14 +13,16 @@ const Assignments = ({ArrAssignments}:IAssignments) => {
   
     return (
       <main className={styles.Content}>
-        <h1>Assignments</h1>
-        <select onChange={(e) => changeAssignment(e)}>
-          <option value="Home">Kies een opdracht</option>
-          {ArrAssignments.map((a,i) => <option key={i} value={a}><NavLink to={a}>{a}</NavLink></option>)}
-        </select>
+        <h2>Portfolio</h2>
+        <nav className="ContentMenu">
+          <select onChange={(e) => changeAssignment(e)}>
+            <option value="Home">Kies een opdracht</option>
+            {ArrAssignments.map((a,i) => <option key={i} value={a}><NavLink to={a}>{a}</NavLink></option>)}
+          </select>
+        </nav>
         <Outlet />
       </main>
     )
   }
 
-export default Assignments;
+export default Portfolio;

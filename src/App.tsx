@@ -3,16 +3,16 @@ import { Outlet, createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Web componenten
 import Navbar from './Webcomponents/Navbar';
-import Search from './Webcomponents/Search';
+import Sidebar from './Webcomponents/Sidebar';
+import Header from './Webcomponents/Header';
 import Footer from './Webcomponents/Footer';
 
 // Functional componenten
-import Assignments from './Functional/Assignments';
+import Portfolio from './Functional/Portfolio';
 import NotFound from './Functional/NotFound';
 import Home from './Functional/Home';
 import AboutMe from './Functional/AboutMe';
 import Contact from './Functional/Contact';
-import ExtraCredit from './Functional/ExtraCredit';
 
 // Assignments
 import AssignmentHome from './Assignments/assignmentHome';
@@ -26,17 +26,15 @@ import CounterList from './Assignments/counterlist';
 import Counter from './Assignments/Counter';
 import { Pokedex,Pokemon } from './Assignments/PokeLibrary/Pokedex';
 
-//Extra Credit Assignments
-import ExtraCreditHome from './ExtraCredit/assignmentHome';
-
 // CSS
 import styles from './styles.module.css';
 
 const Root = () => {
   return (
     <div className={styles.Container}>
+      <Sidebar />
       <Navbar />
-      <Search />
+      <Header />
       <Outlet />
       <Footer />
     </div>
@@ -68,7 +66,7 @@ const App = () => {
         },
         {
           path: "Assignments",
-          element: <Assignments ArrAssignments={ArrAssignments}/>,
+          element: <Portfolio ArrAssignments={ArrAssignments}/>,
           children: [
             {
               path:"Home",
@@ -113,16 +111,6 @@ const App = () => {
             {
               path:"Pokemon/:id",
               element: <Pokemon/>
-            }
-          ]
-        },
-        {
-          path: "ExtraCredit",
-          element: <ExtraCredit  ArrAssignments={ArrExtraAssignments}/>,
-          children: [
-            {
-              path:"Home",
-              element: <ExtraCreditHome />
             }
           ]
         },

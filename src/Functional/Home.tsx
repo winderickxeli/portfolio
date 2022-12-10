@@ -5,7 +5,7 @@ import LoremIpsum from 'react-lorem-ipsum';
 const Home = () => {
     return (
       <main className={styles.Content}>
-        <h1>Hello everyone!</h1>
+        <h2>Hello everyone!</h2>
         <LoremIpsum p={2} />
       </main>
     )

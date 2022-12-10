@@ -49,7 +49,7 @@ const Contact = () => {
 
     return (
       <main className={styles.Content}>
-        <h1>Contact</h1>
+        <h2>Contact</h2>
           <label>Name</label>
           <input type="text" name="from_name" id="from_name" onChange={from_nameChange}/>
           <label>Email</label>

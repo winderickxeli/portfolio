@@ -18,7 +18,6 @@ const QuizApp = () => {
   
     return (
       <>
-        <h1>QuizTime</h1> 
         <div style={{backgroundColor:"light gray"}}>
         {quizVragen.map((qv,i) => <Question key={`Vraag ${qv.question}`} qv={qv} i={i} setQuizVragen={setQuizVragen} quizVragen={quizVragen}/> )}
         </div>
