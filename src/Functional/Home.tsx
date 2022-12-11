@@ -25,7 +25,7 @@ const Home = () => {
       console.log(Latest.json());
       let last = await Latest.json();
 /*       let numberofComics = await parseInt(last.num);
-      let random = Math.random() * numberofComics;
+      let random = Math.floor(Math.random() * numberofComics + 1);
       console.log(`https://xkcd.com/${random}/info.0.json`);
       let result = await fetch(`https://xkcd.com/${random}/info.0.json`, {mode: "no-cors"});
       let randomcomic = await result.json(); */
@@ -41,7 +41,7 @@ const Home = () => {
     return (
       <main className={styles.Content}>
         <h2>Welcome</h2>
-        <article style={{width:"49%"}}>Those are the first words most of us print on our first development endeavors</article>
+        <article style={{width:"49%"}}>This is not the best landing page, it's just a tribute.</article>
         {/* <img src={comic.img} alt={comic.alt} width={"49%"}/> */}
       </main>
     )
