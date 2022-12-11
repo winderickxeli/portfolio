@@ -13,6 +13,7 @@ import NotFound from './Functional/NotFound';
 import Home from './Functional/Home';
 import AboutMe from './Functional/AboutMe';
 import Contact from './Functional/Contact';
+import CV from './Functional/CV';
 
 // Assignments
 import AssignmentHome from './Assignments/assignmentHome';
@@ -63,6 +64,10 @@ const App = () => {
         {
           path:"Me",
           element: <AboutMe />
+        },
+        {
+          path:"CV",
+          element: <CV />
         },
         {
           path: "Assignments",
