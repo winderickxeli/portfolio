@@ -45,16 +45,19 @@ const Contact = () => {
   }
 
     return (
-      <main className={styles.Content}>
-        <h2>Contact</h2>
-        <p>Contact me with the form below or find me on other channels:</p>
-        <ul>
-          <li><a href='https://winderickx.me'> Linktree</a></li>
-          <li><a href='https://github.com/winderickxeli'> Github</a></li>
-          <li><a href='https://www.linkedin.com/in/eli-winderickx-507944223'> LinkedIn</a></li>
-          <li><a href='https://twitter.com/WinderickxEli'> Twitter</a></li>
+      <main className={styles.Content} style={{display:"flex"}}>
+        <article className={styles.AsideLeft}>
+          <h2>Contact</h2>
+          <p>Contact me with the form below or find me on other channels:</p>
+          <ul>
+            <li><a href='https://winderickx.me'> Linktree</a></li>
+            <li><a href='https://github.com/winderickxeli'> Github</a></li>
+            <li><a href='https://www.linkedin.com/in/eli-winderickx-507944223'> LinkedIn</a></li>
+            <li><a href='https://twitter.com/WinderickxEli'> Twitter</a></li>
 
-        </ul>
+          </ul>
+        </article>
+        <article className={styles.AsideRight}>
         <form className='ContactPage' title='Contact'>
           <label>Name</label>
           <input type="text" name="from_name" id="from_name" onChange={from_nameChange} placeholder="Your name"/>
@@ -65,6 +68,7 @@ const Contact = () => {
           <input type="button" disabled={buttonState} onClick={buttonClicked} value="Send"/>
           {showMessage ? <p>{confirmationText}</p> : ""}
         </form>
+        </article>
       </main>
     )
   }
