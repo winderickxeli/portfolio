@@ -39,14 +39,14 @@ const Contact = () => {
 
   const buttonClicked: React.MouseEventHandler<HTMLInputElement> = async () => {
     try {
-      if(reply_to.search("@") == -1)
+      if(reply_to.search("@") === -1)
         throw "Emailadres niet correct."
       var templateParams = {
         from_name: from_name,
         reply_to: reply_to,
         message: message
       };
-      //await emailjs.send('service_qwulxkm','template_l4jqz77', templateParams,"vGFUIhNZVdftPsY03")
+      await emailjs.send('service_qwulxkm','template_l4jqz77', templateParams,"vGFUIhNZVdftPsY03")
       setName(name => "");
       setReply_to(replyTo => "");
       setMessage(message => "");
@@ -79,7 +79,7 @@ const Contact = () => {
           <label>Message</label>
           <textarea name="message" id="message" value={message} onChange={messageChange} rows={5} placeholder="Your message"/>
           <input type="button" disabled={buttonState} onClick={buttonClicked} value="Send"/>
-          {showMessage != "" ? <p>{showMessage}</p> : ""}
+          {showMessage !== "" ? <p>{showMessage}</p> : ""}
         </form>
         </article>
       </main>

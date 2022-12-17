@@ -9,6 +9,7 @@ import Home from './Functional/Home';
 import AboutMe from './Functional/AboutMe';
 import Contact from './Functional/Contact';
 import CV from './Functional/CV';
+import { IThemeContext } from './Interfaces';
 
 // Assignments
 import AssignmentHome from './Assignments/assignmentHome';
@@ -22,11 +23,13 @@ import CounterList from './Assignments/counterlist';
 import Counter from './Assignments/Counter';
 import { Pokedex,Pokemon } from './Assignments/PokeLibrary/Pokedex';
 
-const App = () => {
+export const ThemeContext = React.createContext<IThemeContext>({theme:'Dark'});
 
+const App = () => {
   const ArrAssignments:string[] = ["Color Select","Shoppinglist","Dad Joke","ToDo","QuizApp","SlotMachine","Counter List", "Counter", "Pokedex"];
   const ArrExtraAssignments: string[] = [];
   const CombinedAssignments: string[] = [...ArrAssignments,...ArrExtraAssignments];
+  const [theme, setTheme] = useState("Dark");
 
   useEffect(() => {
     document.title = "Eli Winderickx";
@@ -111,9 +114,9 @@ const App = () => {
   }])
 
   return (
-    <div>
+    <ThemeContext.Provider value={{theme:theme}}>
       <RouterProvider router={router} />
-    </div>
+    </ThemeContext.Provider>
   )
 }
 
