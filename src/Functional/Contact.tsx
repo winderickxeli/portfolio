@@ -7,7 +7,7 @@ const Contact = () => {
   const [reply_to, setReply_to] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [buttonState, setButtonState] = useState<boolean>(true);
-  const [showMessage, setShowMessage] = useState<boolean>(false);
+  const [showMessage, setShowMessage] = useState<string>("");
   const confirmationText: string = "Your message has been sent...";
 
   const form: React.MutableRefObject<any> = useRef();
@@ -32,17 +32,30 @@ const Contact = () => {
     checkButton();
   }
 
-  const buttonClicked: React.MouseEventHandler<HTMLInputElement> = async () => {
-    var templateParams = {
-      from_name: from_name,
-      reply_to: reply_to,
-      message: message
-    };
-    await emailjs.send('service_qwulxkm','template_l4jqz77', templateParams,"vGFUIhNZVdftPsY03")
-    setName(name => "");
-    setReply_to(replyTo => "");
-    setMessage(message => "");
+  const ShowConfirmation = (message:string) => {
+    setShowMessage(oldmessage => message);
+    setTimeout(()=> {setShowMessage(oldmessage => "")}, 3000 );
   }
+
+  const buttonClicked: React.MouseEventHandler<HTMLInputElement> = async () => {
+    try {
+      if(reply_to.search("@") == -1)
+        throw "Emailadres niet correct."
+      var templateParams = {
+        from_name: from_name,
+        reply_to: reply_to,
+        message: message
+      };
+      //await emailjs.send('service_qwulxkm','template_l4jqz77', templateParams,"vGFUIhNZVdftPsY03")
+      setName(name => "");
+      setReply_to(replyTo => "");
+      setMessage(message => "");
+      ShowConfirmation("Message sent!");
+    } catch (error) {
+      ShowConfirmation(`Something went wrong: ${error}`);
+    } 
+  }
+
 
     return (
       <main className={styles.Content} style={{display:"flex"}}>
@@ -60,13 +73,13 @@ const Contact = () => {
         <article className={styles.AsideRight}>
         <form className='ContactPage' title='Contact'>
           <label>Name</label>
-          <input type="text" name="from_name" id="from_name" onChange={from_nameChange} placeholder="Your name"/>
+          <input type="text" name="from_name" id="from_name" value={from_name} onChange={from_nameChange} placeholder="Your name"/>
           <label>Email</label>
-          <input type="email" name="reply_to" id="reply_to" onChange={reply_ToChange} placeholder="Your email address"/>
+          <input type="email" name="reply_to" id="reply_to" value={reply_to} onChange={reply_ToChange} placeholder="Your email address"/>
           <label>Message</label>
-          <textarea name="message" id="message" onChange={messageChange} rows={5} placeholder="Your message"/>
+          <textarea name="message" id="message" value={message} onChange={messageChange} rows={5} placeholder="Your message"/>
           <input type="button" disabled={buttonState} onClick={buttonClicked} value="Send"/>
-          {showMessage ? <p>{confirmationText}</p> : ""}
+          {showMessage != "" ? <p>{showMessage}</p> : ""}
         </form>
         </article>
       </main>

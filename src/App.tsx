@@ -1,13 +1,8 @@
 import React, { Children, useEffect, useState } from 'react';
-import { Outlet, createBrowserRouter, RouterProvider } from 'react-router-dom';
-
-// Web componenten
-import Navbar from './Webcomponents/Navbar';
-import Sidebar from './Webcomponents/Sidebar';
-import Header from './Webcomponents/Header';
-import Footer from './Webcomponents/Footer';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Functional componenten
+import Root from './Functional/Root';
 import Portfolio from './Functional/Portfolio';
 import NotFound from './Functional/NotFound';
 import Home from './Functional/Home';
@@ -26,21 +21,6 @@ import SlotMachine from './Assignments/Slotmachine/slotmachine';
 import CounterList from './Assignments/counterlist';
 import Counter from './Assignments/Counter';
 import { Pokedex,Pokemon } from './Assignments/PokeLibrary/Pokedex';
-
-// CSS
-import styles from './styles.module.css';
-
-const Root = () => {
-  return (
-    <div className={styles.Container}>
-      <Sidebar />
-      <Navbar />
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
-  )
-}
 
 const App = () => {
 
