@@ -38,12 +38,13 @@ const Contact = () => {
     setTimeout(()=> {setShowMessage(oldmessage => "")}, 3000 );
   }
 
-  const SendMail = async () =>{
+  const SendMail = async (captchaValue:any) =>{
     try {
       var templateParams = {
         from_name: from_name,
         reply_to: reply_to,
-        message: message
+        message: message,
+        'g-recaptcha-response': captchaValue
       };
       await emailjs.send('service_qwulxkm','template_l4jqz77', templateParams,"vGFUIhNZVdftPsY03")
       setName(name => "");
@@ -89,13 +90,14 @@ const Contact = () => {
           <label>Message</label>
           <textarea name="message" id="message" value={message} onChange={messageChange} rows={5} placeholder="Your message"/>
           <input type="button" disabled={buttonState} onClick={buttonClicked} value="Send"/>
-          {showMessage !== "" ? <p>{showMessage}</p> : ""}
+          
         </form>) : (
           <ReCAPTCHA
             sitekey='6Lfj7IojAAAAAG58Ihys9iLgyhexZtp334E-hSyZ'
             onChange={SendMail}
             />
         )}
+        {showMessage !== "" ? <p>{showMessage}</p> : ""}
 
         </article>
       </main>
