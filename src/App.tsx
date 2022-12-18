@@ -83,7 +83,7 @@ const App = () => {
             },
             {
               path:"SlotMachine",
-              element: <SlotMachine />
+              element: <SlotMachine slots={5} />
             },
             {
               path:"Counter List",

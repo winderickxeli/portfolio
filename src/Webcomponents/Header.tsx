@@ -20,7 +20,7 @@ const Header = () =>{
         else
           setTheme('Dark');
       }}/>
-      <input type="text" value="Search here" style={theme === "Dark" ? { color : "white"} : { color : "black"}}/>
+      <input type="text" value="Search here" style={theme === "Dark" ? { color : "white"} : { backgroundColor: "white", color : "black"}}/>
     </header>
   )
   }

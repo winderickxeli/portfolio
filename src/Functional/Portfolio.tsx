@@ -19,7 +19,7 @@ const Portfolio = ({ArrAssignments}:IAssignments) => {
         <h2>Portfolio</h2>
         <nav className="ContentMenu">
           <select onChange={(e) => changeAssignment(e)}>
-            <option value="Home">Kies een opdracht</option>
+            <option value="Home">Choose an assignment</option>
             {ArrAssignments.map((a,i) => <option key={i} value={a}><NavLink to={a}>{a}</NavLink></option>)}
           </select>
         </nav>

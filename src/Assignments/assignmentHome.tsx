@@ -1,9 +1,7 @@
-import LoremIpsum, { loremIpsum } from 'react-lorem-ipsum';
-
 const AssignmentHome = () => {
     return(
         <article>
-            <LoremIpsum p={1} />
+            <p>In here you'll find a selection of the assignments we've made during the past semester. Select an option in the list above and enjoy!</p>
         </article>
     )
 }
