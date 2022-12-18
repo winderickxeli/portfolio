@@ -3,5 +3,6 @@ export interface IAssignments {
   }
 
 export interface IThemeContext {
-  theme:string
+  theme:string,
+  setTheme: (theme:string) => void
 }

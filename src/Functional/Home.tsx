@@ -1,5 +1,8 @@
+// React
 import { useEffect, useState } from 'react';
-import styles from '../styles.module.css';
+
+// CSS
+import styles from '../CSS/styles.module.css';
 
 interface IComic {
   title:string,

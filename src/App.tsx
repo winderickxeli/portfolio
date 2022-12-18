@@ -1,5 +1,6 @@
+// React
 import React, { Children, useEffect, useState } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {Router, createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Functional componenten
 import Root from './Functional/Root';
@@ -9,7 +10,6 @@ import Home from './Functional/Home';
 import AboutMe from './Functional/AboutMe';
 import Contact from './Functional/Contact';
 import CV from './Functional/CV';
-import { IThemeContext } from './Interfaces';
 
 // Assignments
 import AssignmentHome from './Assignments/assignmentHome';
@@ -23,12 +23,12 @@ import CounterList from './Assignments/counterlist';
 import Counter from './Assignments/Counter';
 import { Pokedex,Pokemon } from './Assignments/PokeLibrary/Pokedex';
 
-export const ThemeContext = React.createContext<IThemeContext>({theme:'Dark'});
+// CSS
+import ThemeContext from './CSS/ThemeContext';
+
 
 const App = () => {
   const ArrAssignments:string[] = ["Color Select","Shoppinglist","Dad Joke","ToDo","QuizApp","SlotMachine","Counter List", "Counter", "Pokedex"];
-  const ArrExtraAssignments: string[] = [];
-  const CombinedAssignments: string[] = [...ArrAssignments,...ArrExtraAssignments];
   const [theme, setTheme] = useState("Dark");
 
   useEffect(() => {
@@ -36,6 +36,7 @@ const App = () => {
   },[]);
 
   const router = createBrowserRouter([
+    
     {
     path: "/",
     element: <Root/>,
@@ -112,9 +113,10 @@ const App = () => {
         }
     ]
   }])
+  
 
   return (
-    <ThemeContext.Provider value={{theme:theme}}>
+    <ThemeContext.Provider value={{theme:theme, setTheme: setTheme}}>
       <RouterProvider router={router} />
     </ThemeContext.Provider>
   )

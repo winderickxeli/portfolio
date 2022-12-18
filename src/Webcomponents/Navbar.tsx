@@ -1,6 +1,13 @@
+// React
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+
+//CSS
 import styles from '../CSS/styles.module.css';
+import ThemeContext from '../CSS/ThemeContext';
+
 const Navbar = () => {
+  const {theme, setTheme} = useContext(ThemeContext);
     return(
       <nav className={styles.Nav}>
           <ul>
