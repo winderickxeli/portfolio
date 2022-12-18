@@ -53,8 +53,8 @@ const Home = () => {
     }
 
     GetRandomComic();
-    //getTweakersNews();
-    //getQuote();
+    getTweakersNews();
+    getQuote();
   },[]);
 
     return (
