@@ -1,4 +1,4 @@
-import styles from '../styles.module.css';
+import styles from '../CSS/styles.module.css';
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';

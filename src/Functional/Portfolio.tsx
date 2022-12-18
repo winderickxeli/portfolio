@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { useNavigate, NavLink, Outlet } from "react-router-dom";
 
 import { IAssignments } from "../Interfaces";
 
-import styles from '../styles.module.css';
+import styles from '../CSS/styles.module.css';
 
 const Portfolio = ({ArrAssignments}:IAssignments) => {
     const navigate = useNavigate();
