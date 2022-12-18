@@ -1,6 +1,7 @@
 import styles from '../styles.module.css';
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const Contact = () => {
   const [from_name, setName] = useState<string>("");
@@ -8,7 +9,7 @@ const Contact = () => {
   const [message, setMessage] = useState<string>("");
   const [buttonState, setButtonState] = useState<boolean>(true);
   const [showMessage, setShowMessage] = useState<string>("");
-  const confirmationText: string = "Your message has been sent...";
+  const [showCaptcha, setShowCaptcha] = useState(false);
 
   const form: React.MutableRefObject<any> = useRef();
 
@@ -37,10 +38,8 @@ const Contact = () => {
     setTimeout(()=> {setShowMessage(oldmessage => "")}, 3000 );
   }
 
-  const buttonClicked: React.MouseEventHandler<HTMLInputElement> = async () => {
+  const SendMail = async () =>{
     try {
-      if(reply_to.search("@") === -1)
-        throw "Emailadres niet correct."
       var templateParams = {
         from_name: from_name,
         reply_to: reply_to,
@@ -51,6 +50,16 @@ const Contact = () => {
       setReply_to(replyTo => "");
       setMessage(message => "");
       ShowConfirmation("Message sent!");
+    } catch (error) {
+      ShowConfirmation(`Something went wrong: ${error}`);
+    } 
+  }
+
+  const buttonClicked: React.MouseEventHandler<HTMLInputElement> = async () => {
+    try {
+      if(reply_to.search("@") === -1)
+        throw "Emailadres niet correct."
+      setShowCaptcha(status => true);
     } catch (error) {
       ShowConfirmation(`Something went wrong: ${error}`);
     } 
@@ -71,6 +80,7 @@ const Contact = () => {
           </ul>
         </article>
         <article className={styles.AsideRight}>
+        {!showCaptcha ? (
         <form className='ContactPage' title='Contact'>
           <label>Name</label>
           <input type="text" name="from_name" id="from_name" value={from_name} onChange={from_nameChange} placeholder="Your name"/>
@@ -80,7 +90,13 @@ const Contact = () => {
           <textarea name="message" id="message" value={message} onChange={messageChange} rows={5} placeholder="Your message"/>
           <input type="button" disabled={buttonState} onClick={buttonClicked} value="Send"/>
           {showMessage !== "" ? <p>{showMessage}</p> : ""}
-        </form>
+        </form>) : (
+          <ReCAPTCHA
+            sitekey='6Lfj7IojAAAAAG58Ihys9iLgyhexZtp334E-hSyZ'
+            onChange={SendMail}
+            />
+        )}
+
         </article>
       </main>
     )
