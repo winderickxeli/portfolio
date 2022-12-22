@@ -12,14 +12,15 @@ import Navbar from '../Webcomponents/Navbar';
 import Sidebar from '../Webcomponents/Sidebar';
 import Header from '../Webcomponents/Header';
 import Footer from '../Webcomponents/Footer';
+import { IAllPages } from '../Interfaces';
 
-const Root = () => {
+const Root = ({ArrAllPages}:IAllPages) => {
   const {theme, setTheme} = useContext(ThemeContext);
     return (
       <div className={styles.Container} style={theme === "Dark" ? bodyTheme.dark : bodyTheme.light}>
         <Sidebar />
         <Navbar />
-        <Header />
+        <Header ArrAllPages={ArrAllPages}/>
         <Outlet />
         <Footer />
       </div>

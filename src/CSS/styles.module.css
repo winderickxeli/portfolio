@@ -125,7 +125,7 @@ input[type=button] {
   position: fixed;
 }
 
-.Header input[type=text] {
+.Header input[type=list] {
   top: 20px;
   right: 30px;
   border-radius: 25px;
@@ -140,14 +140,14 @@ input[type=button] {
   text-decoration-line:none;
 }
 
-.Header input[type=text]:hover {
+.Header input[type=list]:hover {
   width: 500px;
   border: 1px solid #5F93FC;
   background: white;
   color: black;
 }
 
-.Header input[type=text]:focus{
+.Header input[type=list]:focus{
   width: 500px;
   background: white;
   color:black;

@@ -29,6 +29,7 @@ import ThemeContext from './CSS/ThemeContext';
 
 const App = () => {
   const ArrAssignments:string[] = ["Color Select","Shoppinglist","Dad Joke","ToDo","QuizApp","SlotMachine","Counter List", "Counter", "Pokedex"];
+  const ArrAllPages:string[] = ["Home","Me","CV","Contact",...ArrAssignments.map(a => `Assignments/${a}`)];
   const [theme, setTheme] = useState("Dark");
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const App = () => {
     
     {
     path: "/",
-    element: <Root/>,
+    element: <Root ArrAllPages={ArrAllPages}/>,
     children: [
         {
           path: "/",
@@ -113,7 +114,7 @@ const App = () => {
         }
     ]
   }])
-  
+
 
   return (
     <ThemeContext.Provider value={{theme:theme, setTheme: setTheme}}>

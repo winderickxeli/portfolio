@@ -1,3 +1,7 @@
+export interface IAllPages {
+  ArrAllPages:string[]
+}
+
 export interface IAssignments {
     ArrAssignments:string[]
   }

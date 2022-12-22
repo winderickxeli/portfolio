@@ -18,7 +18,7 @@ const Portfolio = ({ArrAssignments}:IAssignments) => {
       <main className={styles.Content}>
         <h2>Portfolio</h2>
         <nav className="ContentMenu">
-          <select onChange={(e) => changeAssignment(e)}>
+          <select onChange={(e) => changeAssignment(e)} defaultValue="Home">
             <option value="Home">Choose an assignment</option>
             {ArrAssignments.map((a,i) => <option key={i} value={a}><NavLink to={a}>{a}</NavLink></option>)}
           </select>
