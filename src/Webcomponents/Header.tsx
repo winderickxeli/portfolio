@@ -40,7 +40,7 @@ const Header = ({ArrAllPages}:IAllPages) =>{
           {
             ArrAllPages
               .filter(page => page.toUpperCase().includes(search.toUpperCase()))
-              .map((page, index) => <option id={page}>{page}</option>)
+              .map((page, index) => <option key={index} id={page}>{page}</option>)
           }
         </datalist>
     </header>
