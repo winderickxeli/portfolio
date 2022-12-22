@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../CSS/styles.module.css';
 import ThemeContext from '../CSS/ThemeContext';
 import { IAllPages } from '../Interfaces';
-import { text } from 'body-parser';
 
 const Header = ({ArrAllPages}:IAllPages) =>{
   const {theme,setTheme} = useContext(ThemeContext);
@@ -36,7 +35,7 @@ const Header = ({ArrAllPages}:IAllPages) =>{
         else
           setTheme('Dark');
       }}/>
-      <input list='pages' type="list" value={search} onSelect={()=>{}} style={theme === "Dark" ? {backgroundColor:"none"} : { backgroundColor: "white", color : "black"}} onChange={(e)=>{SearchFor(e.target.value)}}/>
+      <input list='pages' type="list" value={search} onSelect={(e)=>{SearchFor(search)}} style={theme === "Dark" ? {backgroundColor:"none"} : { backgroundColor: "white", color : "black"}} onChange={(e)=>{SearchFor(e.target.value)}}/>
         <datalist id="pages">
           {
             ArrAllPages
