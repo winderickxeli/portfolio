@@ -25,11 +25,12 @@ import { Pokedex,Pokemon } from './Assignments/PokeLibrary/Pokedex';
 
 // CSS
 import ThemeContext from './CSS/ThemeContext';
+import SpaceX from './Functional/SpaceX';
 
 
 const App = () => {
   const ArrAssignments:string[] = ["Color Select","Shoppinglist","Dad Joke","ToDo","QuizApp","SlotMachine","Counter List", "Counter", "Pokedex"];
-  const ArrAllPages:string[] = ["Home","Me","CV","Contact",...ArrAssignments.map(a => `Assignments/${a}`)];
+  const ArrAllPages:string[] = ["Home","Me","CV","Contact","Secret",...ArrAssignments.map(a => `Assignments/${a}`)];
   const [theme, setTheme] = useState("Dark");
 
   useEffect(() => {
@@ -53,6 +54,10 @@ const App = () => {
         {
           path:"CV",
           element: <CV />
+        },
+        {
+          path:"Secret",
+          element: <SpaceX/>
         },
         {
           path: "Assignments",
