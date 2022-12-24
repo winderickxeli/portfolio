@@ -38,11 +38,11 @@ const Nasa = () => {
       },[]);
 
     return(
-        <article className={styles.AsideRight} style={{marginLeft:"50px"}}>
+        <article>
         <h3>Nasa's Astronomy picture of the day</h3>
         <h4>{NasaPic.title}</h4>
         <p>{NasaPic.explanation}</p>
-        <NavLink to="Secret"><img src={NasaPic.url} width="75%" alt={NasaPic.date}/></NavLink>
+        <NavLink to="Secret"><img src={NasaPic.url} width="75%" alt={NasaPic.date} style={{borderRadius:"25px"}}/></NavLink>
         <p>&copy; {NasaPic.copyright} </p>
     </article>
     )

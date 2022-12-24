@@ -64,7 +64,7 @@ const App = () => {
           children: [
             {
               path:"Home",
-              element: <AssignmentHome />
+              element: <AssignmentHome ArrAssignments={ArrAssignments}/>
             },
             {
               path:"Color Select",
@@ -105,6 +105,10 @@ const App = () => {
             {
               path:"Pokemon/:id",
               element: <Pokemon/>
+            },
+            {
+              path:"*",
+              element: <NotFound />
             }
           ]
         },

@@ -1,6 +1,11 @@
+// React
 import { NavLink, useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
+// Functional
+import { Dna } from 'react-loader-spinner';
+
+// CSS
 import styles from './pokedex.module.css'
 
 interface IPokemon {
@@ -50,8 +55,10 @@ const Pokemon = () => {
 const Pokedex = () => {
   const [pokemon, setPokemon] = useState<IPokemon[]>([]);
   const [filter, setFilter] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    setLoading(loading => true);
     let PokeTeam: IPokemon[] = [];
     const getPokemon = async () => {
       for(let i:number = 1; i<150; i++){
@@ -68,22 +75,38 @@ const Pokedex = () => {
       setPokemon([ ...PokeTeam])
     }
     getPokemon(); 
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
   },[]);
 
 
   
   return (
-    <article className={styles.Pokedex}>
-      <label>Zoek een </label><label>Pokémon:</label>
-      <input type="text" value={filter} onChange={(e) => {
-        setFilter(e.target.value)
-      }}/>
-      {pokemon
-      .filter(pokemon => pokemon.name?.toLowerCase().includes(filter.toLowerCase()))
-      .map((poke, key) => <NavLink to={`../Pokemon/${poke.id}`} style={{margin:0}}>{poke.name}</NavLink>)}
-    </article>
+    <div>
+      <h4>Zoek een Pokemon</h4>
+      {loading ? (
+        <main><Dna
+        visible={true}
+        height="50"
+        width="150"
+        ariaLabel="dna-loading"
+        wrapperStyle={{}}
+        wrapperClass="dna-wrapper"
+      /></main>
+      ):(
+      <main>
+        <input type="text" value={filter} onChange={(e) => {
+          setFilter(e.target.value)
+        }}/>
+        <article className={styles.Pokedex}>
+          {pokemon
+          .filter(pokemon => pokemon.name?.toLowerCase().includes(filter.toLowerCase()))
+          .map((poke, key) => <NavLink to={`../Pokemon/${poke.id}`} style={{margin:"0 2 5 0"}}>{poke.name}</NavLink>)}
+        </article>
+      </main>
+      )}
+    </div>
   )
-
-}
-
+          }
 export {Pokedex, Pokemon };

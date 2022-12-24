@@ -1,11 +1,13 @@
-//React
+// React
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-//CSS
+// Functional
+import { IAllPages } from '../Interfaces';
+
+// CSS
 import styles from '../CSS/styles.module.css';
 import ThemeContext from '../CSS/ThemeContext';
-import { IAllPages } from '../Interfaces';
 
 const Header = ({ArrAllPages}:IAllPages) =>{
   const {theme,setTheme} = useContext(ThemeContext);

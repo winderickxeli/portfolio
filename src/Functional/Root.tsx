@@ -14,9 +14,15 @@ import Header from '../Webcomponents/Header';
 import Footer from '../Webcomponents/Footer';
 import { IAllPages } from '../Interfaces';
 
+
 const Root = ({ArrAllPages}:IAllPages) => {
   const {theme, setTheme} = useContext(ThemeContext);
-    return (
+  const body = document.body;
+  if(theme === "Dark")
+    body.style.background="#044220";
+  else
+    body.style.background="#c1d5fe";
+  return (
       <div className={styles.Container} style={theme === "Dark" ? bodyTheme.dark : bodyTheme.light}>
         <Sidebar />
         <Navbar />

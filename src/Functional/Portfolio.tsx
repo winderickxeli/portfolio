@@ -2,8 +2,10 @@
 import { useContext } from "react";
 import { useNavigate, NavLink, Outlet } from "react-router-dom";
 
+// Functional
 import { IAssignments } from "../Interfaces";
 
+// CSS
 import styles from '../CSS/styles.module.css';
 import ThemeContext from "../CSS/ThemeContext";
 

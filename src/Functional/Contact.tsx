@@ -1,7 +1,12 @@
-import styles from '../CSS/styles.module.css';
+// React
 import React, { useRef, useState } from 'react';
+
+// Functional
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
+
+// CSS
+import styles from '../CSS/styles.module.css';
 
 const Contact = () => {
   const [from_name, setName] = useState<string>("");

@@ -1,5 +1,9 @@
+// React
 import { NavLink } from 'react-router-dom';
+
+// CSS
 import styles from '../CSS/styles.module.css';
+
 const Sidebar = () => {
     return(
       <aside className={styles.Pic}>

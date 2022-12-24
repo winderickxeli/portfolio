@@ -22,7 +22,7 @@ const Tweakers = () => {
 
 
     return(
-    <article className={styles.AsideLeft}>
+    <article>
         <h3>Latest by <a href="https://tweakers.net">Tweakers.net</a></h3>
         <table width="100%">
         <tbody>

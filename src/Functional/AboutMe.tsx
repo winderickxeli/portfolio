@@ -1,3 +1,4 @@
+// CSS
 import styles from '../CSS/styles.module.css';
 
 const AboutMe = () => {
