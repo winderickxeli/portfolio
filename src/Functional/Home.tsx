@@ -9,7 +9,6 @@ import styles from '../CSS/styles.module.css';
 
 const Home = () => {
   const [tweakersNewsItems, setTweakersNewsItems] = useState<ITweakersNewsItem[]>([]);
-  const [quote, setQuote] = useState<string>("This is not the best landing page, it's just a tribute.");
   const [comic, setComic] = useState<IComic>({
     title:"Empty",
     alt:"We got no comic",
@@ -24,18 +23,11 @@ const Home = () => {
       setTweakersNewsItems(news => [...tweakersItems]);
     }
 
-    const getQuote = async () => {
-      let quoteApi = await(await fetch("https://api.themotivate365.com/stoic-quote")).json();
-      setQuote(quote => quoteApi.quote);
-    }
-
     const GetRandomComic = async () => {
       //fetch("https://api.factmaven.com/xml-to-json?xml=https://xkcd.com/atom.xml"
-      let XkcdComic = await(await fetch("https://xkcd.com/info.0.json", 
-      {
-        method: 'GET',
-        mode: 'no-cors',
-      })).json();
+      try{
+        let XkcdComic = await(await fetch("https://xkcd.com/info.0.json" 
+  )).json();
       
       setComic({
         title: XkcdComic.title,
@@ -43,6 +35,11 @@ const Home = () => {
         img: XkcdComic.img
       })
       console.log(XkcdComic);
+      }
+      catch(e){
+        console.log(e);
+      }
+      
     }
 
     GetRandomComic();
@@ -53,7 +50,7 @@ const Home = () => {
       <main className={styles.Content}>
         <h2>Welcome</h2>
         <p>This portfolio is part of an assignment of a course I'm attending. The course Web Frameworks is taught at AP Highschool college and teaches the React Framework. It is part of an Associate degree; Computer Programming. More information can be found on <a href="https://www.ap.be/graduaat/programmeren">the degree's page</a></p>
-        <article>
+        <article className={styles.AsideRight}>
         <h3>Latest by <a href="https://tweakers.net">Tweakers.net</a></h3>
           <table width="100%">
             <tbody>
@@ -64,7 +61,7 @@ const Home = () => {
           </tbody>
           </table>
         </article>
-        <article>
+        <article className={styles.AsideLeft}>
             <h3>Latest XKCD comic</h3>
             {<img src={comic.img} />}
         </article>

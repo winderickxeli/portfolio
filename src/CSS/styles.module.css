@@ -27,7 +27,7 @@ body {
 .Content { 
   padding-top: 15px;
   grid-area: Content; 
-  display: flexbox;
+  display: grid;
   overflow-y: auto;
 }
 
@@ -39,11 +39,6 @@ body {
 
 AsideRight {
   width: 70%;
-  display: grid;
-}
-
-AsideRight img {
-  width: 20px;
 }
 
 .Content ul {
@@ -234,6 +229,9 @@ article a, a:visited {
 }
 
 .Footer {
+  background-color: #044220;
+  bottom: 0px;
+  width: 100%;
   display: inline-block;
   align-items: center;
   justify-items: center;
