@@ -1,11 +1,11 @@
-// Functional
+// React
 import { useEffect, useState } from 'react'
 
-// CSS
-import styles from '../CSS/styles.module.css';
+// Functional
+import { ISpaceXMission } from '../../Interfaces'
 
-// Interfaces
-import { ISpaceXMission } from '../Interfaces'
+// CSS
+import styles from '../../CSS/styles.module.css';
 
 const SpaceX = () => {
     const [spaceXNextMission, setSpaceXNextMission] = useState<ISpaceXMission>(

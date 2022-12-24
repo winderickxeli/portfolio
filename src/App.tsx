@@ -10,6 +10,7 @@ import Home from './Functional/Home';
 import AboutMe from './Functional/AboutMe';
 import Contact from './Functional/Contact';
 import CV from './Functional/CV';
+import SpaceX from './Functional/Extras/SpaceX';
 
 // Assignments
 import AssignmentHome from './Assignments/assignmentHome';
@@ -25,8 +26,6 @@ import { Pokedex,Pokemon } from './Assignments/PokeLibrary/Pokedex';
 
 // CSS
 import ThemeContext from './CSS/ThemeContext';
-import SpaceX from './Functional/SpaceX';
-
 
 const App = () => {
   const ArrAssignments:string[] = ["Color Select","Shoppinglist","Dad Joke","ToDo","QuizApp","SlotMachine","Counter List", "Counter", "Pokedex"];
