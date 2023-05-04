@@ -58,7 +58,7 @@ const Contact = () => {
       ShowConfirmation("Message sent!");
     } catch (error) {
       ShowConfirmation(`Something went wrong: ${error}`);
-    } 
+    }
   }
 
   const buttonClicked: React.MouseEventHandler<HTMLInputElement> = async () => {
@@ -68,7 +68,7 @@ const Contact = () => {
       setShowCaptcha(status => true);
     } catch (error) {
       ShowConfirmation(`Something went wrong: ${error}`);
-    } 
+    }
   }
 
 
@@ -95,7 +95,7 @@ const Contact = () => {
           <label>Message</label>
           <textarea name="message" id="message" value={message} onChange={messageChange} rows={5} placeholder="Your message"/>
           <input type="button" disabled={buttonState} onClick={buttonClicked} value="Send"/>
-          
+
         </form>) : (
           <ReCAPTCHA
             sitekey='6Lfj7IojAAAAAG58Ihys9iLgyhexZtp334E-hSyZ'
