@@ -31,6 +31,7 @@ const Header = ({ArrAllPages}:IAllPages) =>{
   return(
     <header className={styles.Header}>
       <h1>Eli Winderickx</h1>
+      {/*
       <input type="button" value={themeIcon} onClick={()=>{
         if(theme === "Dark")
           setTheme('Light');
@@ -45,6 +46,7 @@ const Header = ({ArrAllPages}:IAllPages) =>{
               .map((page, index) => <option key={index} id={page}>{page}</option>)
           }
         </datalist>
+        */}
     </header>
   )
   }

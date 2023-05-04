@@ -23,12 +23,13 @@ import SlotMachine from './Assignments/Slotmachine/slotmachine';
 import CounterList from './Assignments/counterlist';
 import Counter from './Assignments/Counter';
 import { Pokedex,Pokemon } from './Assignments/PokeLibrary/Pokedex';
+import Wordpress from './Assignments/Wordpress/Wordpress';
 
 // CSS
 import ThemeContext from './CSS/ThemeContext';
 
 const App = () => {
-  const ArrAssignments:string[] = ["Color Select","Shoppinglist","Dad Joke","ToDo","QuizApp","SlotMachine","Counter List", "Counter", "Pokedex"];
+  const ArrAssignments:string[] = ["Color Select","Shoppinglist","Dad Joke","ToDo","QuizApp","SlotMachine","Counter List", "Counter", "Pokedex", "Wordpress"];
   const ArrAllPages:string[] = ["Home","Me","CV","Contact","Secret",...ArrAssignments.map(a => `Assignments/${a}`)];
   const [theme, setTheme] = useState("Dark");
 
@@ -37,7 +38,7 @@ const App = () => {
   },[]);
 
   const router = createBrowserRouter([
-    
+
     {
     path: "/",
     element: <Root ArrAllPages={ArrAllPages}/>,
@@ -53,10 +54,6 @@ const App = () => {
         {
           path:"CV",
           element: <CV />
-        },
-        {
-          path:"Secret",
-          element: <SpaceX/>
         },
         {
           path: "Assignments",
@@ -104,7 +101,11 @@ const App = () => {
             },
             {
               path:"Pokemon/:id",
-              element: <Pokemon/>
+              element: <Pokemon />
+            },
+            {
+              path:"Wordpress",
+              element: <Wordpress />
             },
             {
               path:"*",

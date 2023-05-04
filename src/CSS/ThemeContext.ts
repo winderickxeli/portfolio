@@ -2,12 +2,12 @@ import React from 'react';
 import { IThemeContext } from '../Interfaces';
 export const bodyTheme = {
     dark: {
-        backgroundColor: "#044220",
-        color:"#5F93FC"
+        backgroundColor: "#2a2c31",
+        color:"#d5d3c5"
     },
     light: {
-        backgroundColor: "#c1d5fe",
-        color:"#044220"
+        backgroundColor: "#d5d3c5",
+        color:"#2a2c31"
     }
 }
 
