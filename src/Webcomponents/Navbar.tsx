@@ -9,7 +9,7 @@ import ThemeContext from '../CSS/ThemeContext';
 const Navbar = () => {
   const {theme, setTheme} = useContext(ThemeContext);
     return(
-      <nav className={styles.Nav}>
+      <nav className={theme === "Dark" ? styles.Nav : styles.NavLight}>
           <ul>
             <NavLink className={styles.NavLink} to="Me"><li>About me</li></NavLink>
             <NavLink className={styles.NavLink} to="Assignments/Home"><li>Portfolio</li></NavLink>

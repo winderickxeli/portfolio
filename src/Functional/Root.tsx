@@ -19,9 +19,9 @@ const Root = ({ArrAllPages}:IAllPages) => {
   const {theme, setTheme} = useContext(ThemeContext);
   const body = document.body;
   if(theme === "Dark")
-    body.style.background="#044220";
+    body.style.background="#2a2c31";
   else
-    body.style.background="#c1d5fe";
+    body.style.background="#d5d3c5";
   return (
       <div className={styles.Container} style={theme === "Dark" ? bodyTheme.dark : bodyTheme.light}>
         <Sidebar />
