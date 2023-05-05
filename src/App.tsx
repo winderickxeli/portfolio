@@ -9,7 +9,7 @@ import NotFound from './Functional/NotFound';
 import Home from './Functional/Home';
 import AboutMe from './Functional/AboutMe';
 import Contact from './Functional/Contact';
-import CV from './Functional/CV';
+import CV from './Functional/CV/CV';
 import SpaceX from './Functional/Extras/SpaceX';
 
 // Assignments

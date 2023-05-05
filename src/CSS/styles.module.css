@@ -304,6 +304,18 @@ article a, a:visited {
   border: 1px dashed #2a2c31;
 }
 
+pre{
+  border-left:"10px solid #1f2024";
+  background-color: #1f202491;
+  width: fit-content;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  color: #d5d3c5;
+  text-decoration: underline dashed #e2e3e998;
+}
+
 .Footer {
   bottom: 0px;
   width: 100%;
