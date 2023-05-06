@@ -234,7 +234,7 @@ input[type=button]:disabled{
   left: 51%;
   right: 51%;
   bottom: 0;
-  background: #2a2c31;
+  background: #d5d3c5;
   height: 4px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
