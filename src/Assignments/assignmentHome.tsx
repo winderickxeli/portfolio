@@ -10,7 +10,7 @@ import styles from "../CSS/styles.module.css"
 const AssignmentHome = ({ArrAssignments}:IAssignments) => {
     return(
         <main>
-            <p>In here you'll find a selection of the assignments we've made during the past semester. Select an option in the list above or one of the options below and enjoy!</p>
+            <p>Eigen stoef stinkt maar ik zet wel graag enkele zaken in de kijker.</p>
             <div className={styles.Assignments}>
                 {ArrAssignments.map((assignments,index) => <article key={index}><NavLink to={`/Assignments/${assignments}`}>{assignments}</NavLink></article>)}
             </div>

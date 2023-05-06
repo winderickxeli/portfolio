@@ -119,23 +119,35 @@
                 {
                     "Besturingsystemen": [
                         {
-                            "RedHat / CentOS / Rocky Linux / Fedora": "DNF, Yum"
+                            "RHEL / CentOS / Rocky Linux / Fedora": "Zeer goed"
                         },
                         {
-                            "Debian / Ubuntu / Linux Mint": "Apt"
+                            "Windows Server / Windows 10/11": "Zeer goed"
+                        },
+                        {
+                            "Debian / Ubuntu / Linux Mint": "Goed"
+                        },
+                        {
+                            "MacOS": "Goed"
                         }
                     ]
                 },
                 {
                     "Systemen": [
                         {
+                            "SCCM": "Zeer goed"
+                        },
+                        {
                             "Zabbix": "Goed"
                         },
                         {
-                            "Ansible": "Goed"
+                            "Citrix Hypervisor": "Goed"
                         },
                         {
-                            "NginX": "Goed"
+                            "Ansible": "Noties"
+                        },
+                        {
+                            "NginX": "Noties"
                         }
                     ]
                 },
@@ -152,6 +164,9 @@
                         },
                         {
                             "Duits": "Noties"
+                        },
+                        {
+                            "Powershell": "Zeer goed"
                         },
                         {
                             "C#": "Goed"

@@ -36,17 +36,22 @@ CV:
                       - Periode: 2017 - ...
     - Relevante kennis:
           - Besturingsystemen:
-                - RedHat / CentOS / Rocky Linux / Fedora: DNF, Yum
-                - Debian / Ubuntu / Linux Mint: Apt
+                - RHEL / CentOS / Rocky Linux / Fedora: Zeer goed
+                - Windows Server / Windows 10/11: Zeer goed
+                - Debian / Ubuntu / Linux Mint: Goed
+                - MacOS: Goed
           - Systemen:
+                - SCCM: Zeer goed
                 - Zabbix: Goed
-                - Ansible: Goed
-                - NginX: Goed
+                - Citrix Hypervisor: Goed
+                - Ansible: Noties
+                - NginX: Noties
           - Talen:
                 - Nederlands: Moedertaal
                 - Engels: Goed
                 - Frans: Noties
                 - Duits: Noties
+                - Powershell: Zeer goed
                 - C#: Goed
                 - Typescript: Goed
                 - Python: Noties

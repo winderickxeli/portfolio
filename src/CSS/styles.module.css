@@ -83,7 +83,7 @@ input[type=text], input[type=email], textarea {
   border-radius: 25px;
   border: 1px dashed #2a2c31;
   background-color: #d5d3c5;
-  color: white;
+  color: #2a2c31;
 }
 
 label {
@@ -285,6 +285,10 @@ input[type=button]:disabled{
   border-radius: 20px;
 }
 
+main a, a:visited {
+  color:#d5d3c5;
+}
+
 article a, a:visited {
   color:#d5d3c5;
 }
@@ -313,7 +317,24 @@ pre{
 code {
   font-family: 'Courier New', Courier, monospace;
   color: #d5d3c5;
-  text-decoration: underline dashed #e2e3e998;
+
+}
+
+pre {
+  white-space: pre-wrap;
+}
+pre::before {
+  counter-reset: listing;
+}
+pre code {
+  counter-increment: listing;
+}
+pre code::before {
+  content: counter(listing) " ";
+  display: inline-block;
+  padding-left: auto;
+  margin-left: auto;
+  text-align: left;
 }
 
 .Footer {

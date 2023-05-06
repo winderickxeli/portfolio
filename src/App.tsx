@@ -10,26 +10,19 @@ import Home from './Functional/Home';
 import AboutMe from './Functional/AboutMe';
 import Contact from './Functional/Contact';
 import CV from './Functional/CV/CV';
-import SpaceX from './Functional/Extras/SpaceX';
 
 // Assignments
-import AssignmentHome from './Assignments/assignmentHome';
-import ColorSelect from './Assignments/color-select';
-import ShoppingList from './Assignments/shoppinglist';
 import DadJoke from './Assignments/DadJoke/dadjoke';
-import ToDo from './Assignments/Todo/todo';
-import QuizApp from './Assignments/Quiz/QuizApp';
-import SlotMachine from './Assignments/Slotmachine/slotmachine';
-import CounterList from './Assignments/counterlist';
-import Counter from './Assignments/Counter';
-import { Pokedex,Pokemon } from './Assignments/PokeLibrary/Pokedex';
+import AssignmentHome from './Assignments/assignmentHome';
 import Wordpress from './Assignments/Wordpress/Wordpress';
+import Alfanet from './Assignments/AlfaNet/Alfanet';
+import NBB from './Assignments/NBB/NBB';
 
 // CSS
 import ThemeContext from './CSS/ThemeContext';
 
 const App = () => {
-  const ArrAssignments:string[] = ["Color Select","Shoppinglist","Dad Joke","ToDo","QuizApp","SlotMachine","Counter List", "Counter", "Pokedex", "Wordpress"];
+  const ArrAssignments:string[] = ["Alfanet", "DadJoke", "NBB" ,"Wordpress"];
   const ArrAllPages:string[] = ["Home","Me","CV","Contact","Secret",...ArrAssignments.map(a => `Assignments/${a}`)];
   const [theme, setTheme] = useState("Dark");
 
@@ -64,44 +57,16 @@ const App = () => {
               element: <AssignmentHome ArrAssignments={ArrAssignments}/>
             },
             {
-              path:"Color Select",
-              element: <ColorSelect />
+              path:"Alfanet",
+              element: <Alfanet />
             },
             {
-              path:"Shoppinglist",
-              element: <ShoppingList />
-            },
-            {
-              path:"Dad Joke",
+              path:"DadJoke",
               element: <DadJoke />
             },
             {
-              path:"ToDo",
-              element: <ToDo />
-            },
-            {
-              path:"QuizApp",
-              element: <QuizApp />
-            },
-            {
-              path:"SlotMachine",
-              element: <SlotMachine slots={5} />
-            },
-            {
-              path:"Counter List",
-              element: <CounterList />
-            },
-            {
-              path:"Counter",
-              element: <Counter />
-            },
-            {
-              path:"Pokedex",
-              element: <Pokedex />,
-            },
-            {
-              path:"Pokemon/:id",
-              element: <Pokemon />
+              path:"NBB",
+              element: <NBB />
             },
             {
               path:"Wordpress",
