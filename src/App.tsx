@@ -20,9 +20,10 @@ import NBB from './Assignments/NBB/NBB';
 
 // CSS
 import ThemeContext from './CSS/ThemeContext';
+import AP from './Assignments/AP/AP';
 
 const App = () => {
-  const ArrAssignments:string[] = ["Alfanet", "DadJoke", "NBB" ,"Wordpress"];
+  const ArrAssignments:string[] = ["AP","Alfanet", "DadJoke", "NBB" ,"Wordpress"];
   const ArrAllPages:string[] = ["Home","Me","CV","Contact","Secret",...ArrAssignments.map(a => `Assignments/${a}`)];
   const [theme, setTheme] = useState("Dark");
 
@@ -55,6 +56,10 @@ const App = () => {
             {
               path:"Home",
               element: <AssignmentHome ArrAssignments={ArrAssignments}/>
+            },
+            {
+              path:"AP",
+              element: <AP />
             },
             {
               path:"Alfanet",

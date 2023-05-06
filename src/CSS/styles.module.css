@@ -285,6 +285,10 @@ input[type=button]:disabled{
   border-radius: 20px;
 }
 
+main {
+  width: 80%;
+}
+
 main a, a:visited {
   color:#d5d3c5;
 }
