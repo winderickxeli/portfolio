@@ -14,6 +14,7 @@ const Navbar = () => {
             <NavLink className={styles.NavLink} to="Me"><li>About me</li></NavLink>
             <NavLink className={styles.NavLink} to="Assignments/Home"><li>Portfolio</li></NavLink>
             <NavLink className={styles.NavLink} to="CV"><li>Curriculum Vitae</li></NavLink>
+            <NavLink className={styles.NavLink} to="Blog"><li>Blog</li></NavLink>
             <NavLink className={styles.NavLink} to="Contact"><li>Contact me</li></NavLink>
           </ul>
       </nav>

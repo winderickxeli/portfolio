@@ -21,10 +21,11 @@ import NBB from './Assignments/NBB/NBB';
 // CSS
 import ThemeContext from './CSS/ThemeContext';
 import AP from './Assignments/AP/AP';
+import Blog from './Functional/Blog';
 
 const App = () => {
   const ArrAssignments:string[] = ["AP","Alfanet", "DadJoke", "NBB" ,"Wordpress"];
-  const ArrAllPages:string[] = ["Home","Me","CV","Contact","Secret",...ArrAssignments.map(a => `Assignments/${a}`)];
+  const ArrAllPages:string[] = ["Home","Me","CV","Blog","Contact",...ArrAssignments.map(a => `Assignments/${a}`)];
   const [theme, setTheme] = useState("Dark");
 
   useEffect(() => {
@@ -82,6 +83,10 @@ const App = () => {
               element: <NotFound />
             }
           ]
+        },
+        {
+          path: "Blog",
+          element: <Blog />
         },
         {
           path: "Contact",
