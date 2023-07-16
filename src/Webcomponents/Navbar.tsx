@@ -13,6 +13,7 @@ const Navbar = () => {
           <ul>
             <NavLink className={styles.NavLink} to="Me"><li>About me</li></NavLink>
             <NavLink className={styles.NavLink} to="Assignments/Home"><li>Portfolio</li></NavLink>
+            <a className={styles.NavLink} href='https://blog.winderickx.me' target="_blank" rel="noopener noreferrer">Blog</a>
             <NavLink className={styles.NavLink} to="CV"><li>Curriculum Vitae</li></NavLink>
             <NavLink className={styles.NavLink} to="Contact"><li>Contact me</li></NavLink>
           </ul>
