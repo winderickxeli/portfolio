@@ -201,7 +201,8 @@ input[type=button]:disabled{
   padding: 0px;
 }
 
-.Nav li {
+.Nav a {
+  text-decoration: none;
   display: inline-block;
   list-style: none;
   padding: 10px 10px 10px 10px;
@@ -214,7 +215,8 @@ input[type=button]:disabled{
   overflow: hidden;
 }
 
-.NavLight li {
+.NavLight a {
+  text-decoration: none;
   display: inline-block;
   list-style: none;
   padding: 10px 10px 10px 10px;
@@ -227,7 +229,7 @@ input[type=button]:disabled{
   overflow: hidden;
 }
 
-.Nav li:before {
+.Nav a:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -244,7 +246,7 @@ input[type=button]:disabled{
   transition-timing-function: ease-out;
 }
 
-.NavLight li:before {
+.NavLight a:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -261,12 +263,12 @@ input[type=button]:disabled{
   transition-timing-function: ease-out;
 }
 
-.Nav li:hover:before, .Nav li:focus:before, .Nav li:active:before {
+.Nav a:hover:before, .Nav a:focus:before, .Nav a:active:before{
   left: 0;
   right: 0;
 }
 
-.NavLight li:hover:before, .Nav li:focus:before, .Nav li:active:before {
+.NavLight a:hover:before, .Nav a:focus:before, .Nav a:active:before {
   left: 0;
   right: 0;
 }
