@@ -79,8 +79,9 @@ const Contact = () => {
           <p>Contact me with the form below or find me on other channels:</p>
           <ul>
             <li><a href='https://github.com/winderickxeli'> Github</a></li>
+            <li><a href='https://gitlab.com/eliwinderickx'> Gitlab</a></li>
             <li><a href='https://www.linkedin.com/in/eli-winderickx-507944223'> LinkedIn</a></li>
-            <li><a href='https://twitter.com/WinderickxEli'> Twitter</a></li>
+            <li><a href='https://ieji.de/@Rubberducky456'> Mastodon</a></li>
 
           </ul>
         </article>

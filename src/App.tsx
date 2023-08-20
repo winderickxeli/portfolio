@@ -16,6 +16,7 @@ import DadJoke from './Assignments/DadJoke/dadjoke';
 import AssignmentHome from './Assignments/assignmentHome';
 import Wordpress from './Assignments/Wordpress/Wordpress';
 import Alfanet from './Assignments/AlfaNet/Alfanet';
+import Blog from './Assignments/Blog/Blog';
 import NBB from './Assignments/NBB/NBB';
 
 // CSS
@@ -23,7 +24,7 @@ import ThemeContext from './CSS/ThemeContext';
 import AP from './Assignments/AP/AP';
 
 const App = () => {
-  const ArrAssignments:string[] = ["AP","Alfanet", "DadJoke", "NBB" ,"Wordpress"];
+  const ArrAssignments:string[] = ["AP","Alfanet","Blog", "DadJoke", "NBB" ,"Wordpress"];
   const ArrAllPages:string[] = ["Home","Me","CV","Contact","Secret",...ArrAssignments.map(a => `Assignments/${a}`)];
   const [theme, setTheme] = useState("Dark");
 
@@ -64,6 +65,10 @@ const App = () => {
             {
               path:"Alfanet",
               element: <Alfanet />
+            },
+            {
+              path:"Blog",
+              element: <Blog />
             },
             {
               path:"DadJoke",
