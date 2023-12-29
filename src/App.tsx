@@ -3,6 +3,7 @@ import React, { Children, useEffect, useState } from 'react';
 import {Router, createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Functional componenten
+import Base from './Functional/Base';
 import Root from './Functional/Root';
 import Portfolio from './Functional/Portfolio';
 import NotFound from './Functional/NotFound';
@@ -25,7 +26,8 @@ import AP from './Assignments/AP/AP';
 
 const App = () => {
   const ArrAssignments:string[] = ["AP","Alfanet","Blog", "DadJoke", "NBB" ,"Wordpress"];
-  const ArrAllPages:string[] = ["Home","Me","CV","Contact","Secret",...ArrAssignments.map(a => `Assignments/${a}`)];
+  //const ArrAllPages:string[] = ["Home","Me","CV","Contact","Secret",...ArrAssignments.map(a => `Assignments/${a}`)];
+  const ArrAllPages:string[] = ["Base"];
   const [theme, setTheme] = useState("Dark");
 
   useEffect(() => {
@@ -40,19 +42,23 @@ const App = () => {
     children: [
         {
           path: "/",
-          element: <Home />
+          element: <Base />
         },
         {
           path:"Me",
-          element: <AboutMe />
+          element: <Base />
         },
         {
           path:"CV",
-          element: <CV />
+          element: <Base />
+        },
+        {
+          path:"Base",
+          element: <Base />
         },
         {
           path: "Assignments",
-          element: <Portfolio ArrAssignments={ArrAssignments}/>,
+          element: <Base />,
           children: [
             {
               path:"Home",
